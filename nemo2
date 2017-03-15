@@ -1,0 +1,9 @@
+#!/bin/bash
+cd "${0%/*}"
+g++ gold.cpp -o g.out
+g++ outputParsing.cpp -o v.out
+./build_c.sh
+iverilog CPU_tb.v -o designOutput.vvp
+vvp designOutput.vvp -> d_res.txt
+./g.out app.bin > g_res.txt
+./v.out
