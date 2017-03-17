@@ -9,6 +9,10 @@
 #include <cstring>
 #include <sstream>
 
+//
+// Created by Oba on 09/03/17.
+//
+
 ISA::ISA() {
 	srand(time(NULL));
 
@@ -273,19 +277,19 @@ string ISA::handleRest(int number, int i) {
 	case 9: branches(output, rs1, rs2, imm, pc, number); //BGEU
 		break;
 
-	case 10: Itype(output, rs1, imm, pc, rd, 0);   //addi
+	case 10: Itype(output, rs1, imm, pc, rd, false);   //addi
 		break;
 		//slti
-	case 11: Itype(output, rs1, imm, pc, rd, 1);
+	case 11: Itype(output, rs1, imm, pc, rd, false);
 		break;
 		//sltiu
-	case 12: Itype(output, rs1, imm, pc, rd, 2);
+	case 12: Itype(output, rs1, imm, pc, rd, true);
 		break;
 		//xori
-	case 13:Itype(output, rs1, imm, pc, rd, 3);
+	case 13:Itype(output, rs1, imm, pc, rd, false);
 		break;
 		//ori
-	case 14:Itype(output, rs1, imm, pc, rd, 4);
+	case 14:Itype(output, rs1, imm, pc, rd, false);
 		break;
 		//andi
 	case 15:Itype(output, rs1, imm, pc, rd, 5);
